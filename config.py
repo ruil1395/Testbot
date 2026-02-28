@@ -7,11 +7,29 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Telegram Bot Token
-BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+# ============================================
+# НАСТРОЙКИ ДЛЯ BOTHOST.RU (бесплатный тариф)
+# ============================================
+# Укажите ваш токен и ID админа прямо здесь:
 
-# ID администратора (кому отправлять уведомления о новых записях)
-ADMIN_ID = int(os.getenv("TELEGRAM_ADMIN_ID", "0"))
+# Telegram Bot Token (получите у @BotFather)
+BOT_TOKEN = "your_bot_token_here"
+
+# ID администратора для уведомлений (узнайте у @userinfobot)
+# Вставьте свой числовой ID вместо 0
+ADMIN_ID = 0
+
+# ============================================
+# Переменные окружения (если доступны на хостинге)
+# ============================================
+# Если переменные заданы в окружении, они перезапишут значения выше
+BOT_TOKEN_ENV = os.getenv("TELEGRAM_BOT_TOKEN")
+if BOT_TOKEN_ENV:
+    BOT_TOKEN = BOT_TOKEN_ENV
+
+ADMIN_ID_ENV = os.getenv("TELEGRAM_ADMIN_ID")
+if ADMIN_ID_ENV:
+    ADMIN_ID = int(ADMIN_ID_ENV)
 
 # База данных
 DATABASE_PATH = os.getenv("DATABASE_PATH", "./booking.db")
@@ -75,8 +93,3 @@ DAYS_AHEAD = 14
 
 # Интервал слотов (минуты)
 SLOT_INTERVAL = 30
-
-# Проверка токена (предупреждение вместо ошибки для удобства развёртывания)
-if not BOT_TOKEN:
-    import warnings
-    warnings.warn("No TELEGRAM_BOT_TOKEN found in environment variables. Please set it in your hosting environment.")

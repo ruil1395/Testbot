@@ -4,33 +4,36 @@
 
 ### Способ 1: Через Git (рекомендуется)
 
-1. **Запушьте код на GitHub/GitLab**
+1. **Настройте config.py**
+   
+   Откройте `config.py` и укажите ваши данные:
+   ```python
+   # Telegram Bot Token (получите у @BotFather)
+   BOT_TOKEN = "1234567890:AAH...ваш_токен"
+   
+   # ID администратора (узнайте у @userinfobot)
+   ADMIN_ID = 123456789
+   ```
+
+2. **Запушьте код на GitHub/GitLab**
    ```bash
    git add .
-   git commit -m "Подготовка для bothost.ru"
+   git commit -m "Настройка для bothost.ru"
    git push origin main
    ```
 
-2. **Подключите репозиторий на Bothost**
+3. **Подключите репозиторий на Bothost**
    - Зарегистрируйтесь на [bothost.ru](https://bothost.ru)
    - Создайте новый проект
    - Выберите тип "Telegram Bot"
    - Подключите ваш GitHub/GitLab репозиторий
    - Выберите ветку `main`
 
-3. **Настройте переменные окружения**
-   
-   В панели Bothost добавьте переменные:
-   | Переменная | Значение |
-   |------------|----------|
-   | `TELEGRAM_BOT_TOKEN` | Токен от @BotFather |
-   | `TELEGRAM_ADMIN_ID` | Ваш ID админа |
-   | `DATABASE_PATH` | `/app/data/booking.db` |
-   | `TIMEZONE` | `Europe/Moscow` |
-
 4. **Задеплойте**
    - Нажмите "Deploy"
    - Bothost автоматически соберёт и запустит бота
+
+> ⚠️ **Для бесплатного тарифа:** Токен и ADMIN_ID указываются прямо в `config.py`, так как переменные окружения недоступны.
 
 ---
 
