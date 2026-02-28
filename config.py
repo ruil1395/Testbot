@@ -12,7 +12,7 @@ BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
 # ID администратора (кому отправлять уведомления о новых записях)
 # Если переменная окружения не задана, укажите ID здесь:
-ADMIN_ID = int(os.getenv("TELEGRAM_ADMIN_ID", "0"))  # Замените 0 на ваш ID
+ADMIN_ID = int(os.getenv("TELEGRAM_ADMIN_ID", "441292958"))  # Замените 0 на ваш ID
 
 # База данных
 DATABASE_PATH = os.getenv("DATABASE_PATH", "./booking.db")
